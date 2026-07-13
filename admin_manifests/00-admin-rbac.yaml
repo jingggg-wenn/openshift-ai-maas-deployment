@@ -1,0 +1,38 @@
+## ClusterRole: allows deploying LLMInferenceService and MaaSModelRef
+## Bound per-user in their workshop namespace via RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: workshop-model-deployer
+rules:
+  - apiGroups: ["serving.kserve.io"]
+    resources: ["llminferenceservices"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["maas.opendatahub.io"]
+    resources: ["maasmodelrefs"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["serving.kserve.io"]
+    resources: ["inferenceservices"]
+    verbs: ["get", "list", "watch"]
+---
+## ClusterRole: allows users to label their own namespace for MaaS gateway access
+## Bound per-user via ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: workshop-namespace-labeler
+rules:
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["get", "patch", "update"]
+---
+## Role: allows creating MaaSSubscriptions in models-as-a-service namespace
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: workshop-subscription-creator
+  namespace: models-as-a-service
+rules:
+  - apiGroups: ["maas.opendatahub.io"]
+    resources: ["maassubscriptions"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]

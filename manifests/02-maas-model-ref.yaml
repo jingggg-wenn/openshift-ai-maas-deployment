@@ -1,0 +1,9 @@
+apiVersion: maas.opendatahub.io/v1alpha1
+kind: MaaSModelRef
+metadata:
+  name: qwen36-27b
+  namespace: workshop-REPLACE_USERNAME
+spec:
+  modelRef:
+    kind: LLMInferenceService
+    name: qwen36-27b

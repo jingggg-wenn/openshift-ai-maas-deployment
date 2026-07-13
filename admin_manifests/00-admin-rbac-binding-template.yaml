@@ -1,0 +1,43 @@
+## ClusterRoleBinding: grants workshop-namespace-labeler (cluster-scoped)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: workshop-namespace-labeler-REPLACE_USERNAME
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: workshop-namespace-labeler
+subjects:
+  - kind: User
+    name: REPLACE_USERNAME
+    apiGroup: rbac.authorization.k8s.io
+---
+## RoleBinding: grants workshop-model-deployer in the user's namespace
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: workshop-model-deployer-binding
+  namespace: workshop-REPLACE_USERNAME
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: workshop-model-deployer
+subjects:
+  - kind: User
+    name: REPLACE_USERNAME
+    apiGroup: rbac.authorization.k8s.io
+---
+## RoleBinding: grants workshop-subscription-creator in models-as-a-service
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: workshop-subscription-REPLACE_USERNAME
+  namespace: models-as-a-service
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: workshop-subscription-creator
+subjects:
+  - kind: User
+    name: REPLACE_USERNAME
+    apiGroup: rbac.authorization.k8s.io

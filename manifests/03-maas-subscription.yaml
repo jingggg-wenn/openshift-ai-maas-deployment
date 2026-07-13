@@ -1,0 +1,19 @@
+apiVersion: maas.opendatahub.io/v1alpha1
+kind: MaaSSubscription
+metadata:
+  name: qwen36-27b-REPLACE_USERNAME
+  namespace: models-as-a-service
+  annotations:
+    openshift.io/display-name: "Qwen3.6-27B - REPLACE_USERNAME"
+    openshift.io/description: "Workshop subscription: 10000 tokens/min"
+spec:
+  owner:
+    users:
+      - REPLACE_USERNAME
+  priority: 10
+  modelRefs:
+    - name: qwen36-27b
+      namespace: workshop-REPLACE_USERNAME
+      tokenRateLimits:
+        - limit: 10000
+          window: 1m
