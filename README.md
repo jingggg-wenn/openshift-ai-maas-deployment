@@ -3,6 +3,7 @@
 A self-service workshop for deploying a large language model on Red Hat OpenShift AI (RHOAI), enrolling it in Models-as-a-Service (MaaS) for managed access, and connecting it to VS Code as an AI coding assistant.
 
 Created: 2026-07-10
+Modified: 2026-07-16
 
 ---
 
@@ -52,10 +53,17 @@ HuggingFace Hub (model weights)
 
 ## Section 0: Prerequisites
 
+### MaaS infrastructure setup reference
+
+The MaaS platform infrastructure (operators, gateway, Kuadrant, database) must be deployed before this workshop. The admin should follow the RHOAI MaaS installation guide:
+
+- [RHOAI Models-as-a-Service (MaaS) Guide](https://github.com/rh-aiservices-bu/rhoai-maas-guide) -- Kustomize manifests and automation scripts for deploying RHOAI 3.4+ MaaS on OpenShift
+- [Full documentation site](https://rh-aiservices-bu.github.io/rhoai-maas-guide/)
+
 ### What the admin has already configured
 
 - RHOAI operator installed and configured
-- MaaS infrastructure deployed (Authorino, Limitador, MaaS gateway)
+- MaaS infrastructure deployed (Authorino, Limitador, MaaS gateway) -- see [MaaS Guide](https://github.com/rh-aiservices-bu/rhoai-maas-guide) for setup
 - GPU worker nodes provisioned (e.g., `g6e.4xlarge` with NVIDIA L40S)
 - NVIDIA GPU Operator and Node Feature Discovery installed
 - HTPasswd identity provider configured (your login credentials)
