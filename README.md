@@ -1,9 +1,12 @@
 # Deploy and Serve an LLM on OpenShift AI
 
+> **Latest comprehensive guide (RHOAI 3.4 / 3.5):** https://rh-aiservices-bu.github.io/rhoai-maas-guide/modules/main/index.html
+> **Source repo:** https://github.com/rh-aiservices-bu/rhoai-maas-guide
+
 A self-service workshop for deploying a large language model on Red Hat OpenShift AI (RHOAI), enrolling it in Models-as-a-Service (MaaS) for managed access, and connecting it to VS Code as an AI coding assistant.
 
 Created: 2026-07-10
-Modified: 2026-07-16
+Modified: 15 Sep 2026
 
 ---
 
